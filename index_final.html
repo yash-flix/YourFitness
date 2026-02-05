@@ -1,0 +1,2281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOUR FITNESS - Strength Starts In The Mind</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .location-options {
+                grid-template-columns: 1fr;
+            }
+
+            .location-title {
+                font-size: 2.5rem;
+            }
+
+            .location-name {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 100px 5% 80px;
+            background: #0a0a0a;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .contact-title {
+            font-size: 4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .contact-title .highlight {
+            color: #ff6600;
+        }
+
+        .contact-subtitle {
+            font-size: 1.2rem;
+            color: #999;
+            font-weight: 300;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .info-icon {
+            width: 60px;
+            height: 60px;
+            background: #ff6600;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .info-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: #fff;
+        }
+
+        .info-content h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+
+        .info-content p {
+            font-size: 1.05rem;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .info-content a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .info-content a:hover {
+            color: #ff6600;
+        }
+
+        /* Map Container */
+        .map-container {
+            margin-top: 40px;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 350px;
+            border: 2px solid #222;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: grayscale(100%) invert(92%) contrast(83%);
+        }
+
+        /* Contact Form */
+        .contact-form-wrapper {
+            background: #111;
+            padding: 50px;
+            border-radius: 12px;
+            border: 1px solid #222;
+        }
+
+        .form-title {
+            font-size: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: capitalize;
+            color: #fff;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 20px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1rem;
+            font-family: 'Arial', sans-serif;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ff6600;
+            background: #222;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #666;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 18px;
+            background: #ff6600;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .submit-button:hover {
+            background: #ff7722;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 102, 0, 0.4);
+        }
+
+        .submit-button svg {
+            width: 20px;
+            height: 20px;
+            fill: #fff;
+        }
+
+        /* Contact Responsive */
+        @media (max-width: 1024px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .contact-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-section {
+                padding: 80px 5% 60px;
+            }
+
+            .contact-title {
+                font-size: 2.5rem;
+            }
+
+            .contact-subtitle {
+                font-size: 1rem;
+            }
+
+            .contact-form-wrapper {
+                padding: 30px;
+            }
+
+            .form-title {
+                font-size: 1.5rem;
+            }
+
+            .info-icon {
+                width: 50px;
+                height: 50px;
+            }
+
+            .info-icon svg {
+                width: 24px;
+                height: 24px;
+            }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #ff6600;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #ff6600;
+        }
+
+        .menu-icon {
+            background: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .hero-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .hero-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: zoomIn 8s ease-out forwards;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(1.1);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .hero-slide.active .hero-image {
+            animation: zoomIn 8s ease-out forwards;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+            z-index: 2;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .hero-title {
+            font-size: 5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.3s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-slide.active .hero-title {
+            animation: fadeInUp 1s ease-out 0.3s forwards;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: #ff6600;
+            color: #fff;
+            padding: 1.2rem 3rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.6s forwards;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-slide.active .cta-button {
+            animation: fadeInUp 1s ease-out 0.6s forwards;
+        }
+
+        .cta-button:hover {
+            background: #ff7722;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 102, 0, 0.4);
+        }
+
+        .cta-button::after {
+            content: '→';
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .cta-button:hover::after {
+            transform: translateX(5px);
+        }
+
+        /* Slider Controls */
+        .slider-controls {
+            position: absolute;
+            bottom: 3rem;
+            right: 5%;
+            z-index: 3;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .slider-arrow {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid #fff;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            backdrop-filter: blur(5px);
+        }
+
+        .slider-arrow:hover {
+            background: #ff6600;
+            border-color: #ff6600;
+            transform: scale(1.1);
+        }
+
+        .slider-arrow svg {
+            width: 24px;
+            height: 24px;
+            fill: #fff;
+        }
+
+        /* Contact Info */
+        .contact-side {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .contact-icon {
+            background: rgba(255, 255, 255, 0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .contact-icon:hover {
+            background: #ff6600;
+            transform: scale(1.1);
+            border-color: #ff6600;
+        }
+
+        .contact-text {
+            writing-mode: vertical-rl;
+            color: #fff;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Slider Dots */
+        .slider-dots {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: #ff6600;
+            width: 40px;
+            border-radius: 6px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .contact-side {
+                display: none;
+            }
+
+            .slider-controls {
+                bottom: 1.5rem;
+                right: 50%;
+                transform: translateX(50%);
+            }
+        }
+
+        /* About Us Section */
+        .about-section {
+            padding: 8rem 5%;
+            background: #fff;
+            position: relative;
+        }
+
+        .about-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image-left,
+        .about-image-right {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0;
+        }
+
+        .about-image-left img,
+        .about-image-right img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image-left:hover img,
+        .about-image-right:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-content {
+            padding: 2rem;
+        }
+
+        .section-tag {
+            color: #ff6600;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .about-title {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #000;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        .about-title::first-letter {
+            color: #ff6600;
+        }
+
+        .about-text {
+            margin-bottom: 2.5rem;
+        }
+
+        .about-text p {
+            color: #555;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more-btn {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .read-more-btn span:first-child {
+            background: #ff6600;
+            color: #fff;
+            padding: 1.2rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .arrow-box {
+            background: #000;
+            color: #fff;
+            padding: 1.2rem 1.5rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .read-more-btn:hover span:first-child {
+            background: #ff7722;
+            padding-right: 3rem;
+        }
+
+        .read-more-btn:hover .arrow-box {
+            background: #ff6600;
+            transform: translateX(5px);
+        }
+
+
+        /* Responsive About Section */
+        @media (max-width: 1024px) {
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-image-right {
+                display: none;
+            }
+
+            .about-image-left img {
+                height: 400px;
+            }
+
+            .about-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-section {
+                padding: 4rem 5%;
+            }
+
+            .about-title {
+                font-size: 2rem;
+            }
+
+            .about-image-left img {
+                height: 300px;
+            }
+        }
+
+        /* Programs Section */
+        .programs-section {
+            background: #000;
+            padding: 6rem 5%;
+            position: relative;
+        }
+
+        .programs-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        /* Masonry Grid Layout */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 120px;
+            gap: 10px;
+            height: fit-content;
+        }
+
+        .grid-item {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.05);
+            z-index: 10;
+            box-shadow: 0 10px 30px rgba(255, 102, 0, 0.5);
+        }
+
+        .grid-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Custom Grid Item Sizes */
+        .grid-item-1 {
+            grid-column: span 1;
+            grid-row: span 2;
+        }
+
+        .grid-item-2 {
+            grid-column: span 1;
+            grid-row: span 2;
+        }
+
+        .grid-item-3 {
+            grid-column: span 1;
+            grid-row: span 2;
+        }
+
+        .grid-item-4 {
+            grid-column: span 1;
+            grid-row: span 2;
+        }
+
+        .grid-item-5 {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .grid-item-6 {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .grid-item-7 {
+            grid-column: span 1;
+            grid-row: span 2;
+        }
+
+        .grid-item-8 {
+            grid-column: span 1;
+            grid-row: span 3;
+        }
+
+        .grid-item-9 {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .grid-item-10 {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+
+        .grid-item-11 {
+            grid-column: span 1;
+            grid-row: span 2;
+        }
+
+        .grid-item-12 {
+            grid-column: span 1;
+            grid-row: span 2;
+        }
+
+        .grid-item-13 {
+            grid-column: span 1;
+            grid-row: span 2;
+        }
+
+        .grid-item-14 {
+            grid-column: span 1;
+            grid-row: span 2;
+        }
+
+        .grid-item-15 {
+            grid-column: span 1;
+            grid-row: span 2;
+        }
+
+        .grid-item-16 {
+            grid-column: span 1;
+            grid-row: span 2;
+        }
+
+        /* Programs Content */
+        .programs-content {
+            padding: 2rem;
+        }
+
+        .programs-title {
+            color: #fff;
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 3rem;
+            text-transform: capitalize;
+        }
+
+        .programs-text {
+            color: #ddd;
+        }
+
+        .programs-text p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 1.8rem;
+            color: #ccc;
+        }
+
+        /* Responsive Programs Section */
+        @media (max-width: 1200px) {
+            .programs-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .programs-grid {
+                grid-template-columns: repeat(3, 1fr);
+                grid-auto-rows: 100px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .programs-section {
+                padding: 4rem 5%;
+            }
+
+            .programs-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: 80px;
+                gap: 8px;
+            }
+
+            .programs-title {
+                font-size: 2rem;
+            }
+
+            .programs-text p {
+                font-size: 0.95rem;
+            }
+
+            /* Simplify grid on mobile */
+            .grid-item {
+                grid-column: span 1 !important;
+                grid-row: span 2 !important;
+            }
+        }
+
+        /* Services Section */
+        .services-section {
+            background: #000;
+            padding: 5rem 5%;
+            color: #fff;
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .services-tag {
+            display: inline-block;
+            background: #ff6600;
+            color: #fff;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+
+        .services-title {
+            font-size: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .services-subtitle {
+            color: #999;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .service-row {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+        }
+
+        .service-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .service-images {
+            flex: 1;
+            display: flex;
+            gap: 0.8rem;
+            padding: 0.5rem;
+            align-items: center;
+        }
+
+        .service-row.reverse .service-images {
+            justify-content: flex-end;
+        }
+
+        .service-image-item {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #1a1a1a;
+            flex-shrink: 0;
+        }
+
+        .service-image-item.large {
+            width: 280px;
+            height: 280px;
+        }
+
+        .service-image-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .service-info {
+            flex: 1;
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .service-badge-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: #ff6600;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .service-icon svg {
+            width: 32px;
+            height: 32px;
+            fill: #fff;
+        }
+
+        .service-badge-text {
+            background: #1a1a1a;
+            padding: 1.2rem 1.8rem;
+            border-radius: 8px;
+            flex: 1;
+        }
+
+        .service-name {
+            font-size: 1.4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-description {
+            color: #999;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Responsive Services */
+        @media (max-width: 1024px) {
+            .service-row {
+                flex-direction: column !important;
+            }
+
+            .service-images {
+                justify-content: center !important;
+            }
+
+            .service-info {
+                padding: 1.5rem;
+                text-align: center;
+            }
+
+            .service-badge-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-title {
+                font-size: 2rem;
+            }
+
+            .service-image-item {
+                width: 140px;
+                height: 140px;
+            }
+
+            .service-image-item.large {
+                width: 180px;
+                height: 180px;
+            }
+
+            .service-info {
+                padding: 1rem;
+            }
+
+            .service-name {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 6rem 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1;
+        }
+
+        .testimonials-wrapper {
+            max-width: 1600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            gap: 4rem;
+            align-items: flex-start;
+        }
+
+        .testimonials-left {
+            flex: 0 0 400px;
+            position: sticky;
+            top: 150px;
+        }
+
+        .testimonials-main-title {
+            color: #fff;
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1;
+        }
+
+        .testimonials-description {
+            color: #ccc;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .testimonials-columns {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-height: 700px;
+            overflow: hidden;
+        }
+
+        .testimonials-column {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* Scrolling Animation - Column Up */
+        .column-up {
+            animation: scrollUp 30s linear infinite;
+        }
+
+        .column-up:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scrollUp {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-50%);
+            }
+        }
+
+        /* Scrolling Animation - Column Down */
+        .column-down {
+            animation: scrollDown 30s linear infinite;
+        }
+
+        .column-down:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scrollDown {
+            0% {
+                transform: translateY(-50%);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .testimonial-box {
+            background: rgba(40, 40, 40, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .testimonial-box:hover {
+            background: rgba(50, 50, 50, 0.8);
+            border-color: rgba(255, 102, 0, 0.3);
+            transform: scale(1.02);
+        }
+
+        .testimonial-quote {
+            color: #fff;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .testimonial-info {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.2rem;
+        }
+
+        .testimonial-info h4 {
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .testimonial-info p {
+            color: #fff;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Testimonials */
+        @media (max-width: 1200px) {
+            .testimonials-wrapper {
+                flex-direction: column;
+                gap: 3rem;
+            }
+
+            .testimonials-left {
+                position: relative;
+                top: 0;
+                flex: 1;
+            }
+
+            .testimonials-main-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .testimonials-section {
+                padding: 4rem 5%;
+                background-attachment: scroll;
+            }
+
+            .testimonials-columns {
+                grid-template-columns: 1fr;
+                max-height: 600px;
+            }
+
+            .testimonials-main-title {
+                font-size: 2.5rem;
+            }
+
+            .testimonial-box {
+                padding: 1.8rem;
+            }
+
+            .testimonial-quote {
+                font-size: 0.95rem;
+            }
+
+            .column-up,
+            .column-down {
+                animation-duration: 40s;
+            }
+        }
+
+        /* Footer Section */
+        .footer-section {
+            background: #000;
+            padding: 0;
+            color: #fff;
+        }
+
+        .footer-header {
+            background: #000;
+            padding: 4rem 5% 3rem;
+            text-align: center;
+        }
+
+        .footer-main-title {
+            font-size: 6rem;
+            font-weight: 900;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            margin: 0;
+            -webkit-text-stroke: 2px #fff;
+            text-stroke: 2px #fff;
+            font-family: 'Arial Black', sans-serif;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 5%;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1.2fr 1.5fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo-col {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .logo-text {
+            color: #fff;
+            font-size: 2rem;
+            font-weight: 900;
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .logo-subtitle {
+            color: #ff6600;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.3rem;
+        }
+
+        .footer-intro {
+            max-width: 450px;
+        }
+
+        .footer-title {
+            color: #fff;
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .footer-heading {
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            font-weight: 400;
+        }
+
+        .footer-links a:hover {
+            color: #ff6600;
+        }
+
+
+        .footer-divider {
+            width: 100%;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.2);
+            margin: 2rem 0;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0 2rem;
+        }
+
+        .copyright {
+            color: #999;
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            transition: all 0.3s;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .social-icon:hover {
+            background: #ff6600;
+            border-color: #ff6600;
+            transform: translateY(-3px);
+        }
+
+        .scroll-percentage-text {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .scroll-percentage {
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Responsive Footer */
+        @media (max-width: 1200px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 2.5rem;
+            }
+
+            .footer-logo-col {
+                grid-column: span 3;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-main-title {
+                font-size: 3rem;
+                letter-spacing: 4px;
+            }
+
+            .footer-header {
+                padding: 3rem 5% 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-logo-col {
+                grid-column: span 1;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+
+            .copyright {
+                order: 2;
+            }
+
+            .social-icons {
+                order: 1;
+            }
+
+            .scroll-percentage-text {
+                order: 3;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            YOUR <br>
+            <span>FITNESS</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#membership">Membership Plans</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact US</a></li>
+        </ul>
+        <div class="menu-icon">⋯</div>
+    </nav>
+
+    <!-- Hero Section with Slider -->
+    <section class="hero-section">
+        <!-- Slide 1 -->
+        <div class="hero-slide active">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=80" alt="Gym Interior"
+                class="hero-image">
+            <div class="hero-content">
+                <h1 class="hero-title">Strength Starts<br>In The Mind</h1>
+                <a href="#membership" class="cta-button">Get Started</a>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="hero-slide">
+            <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=1920&q=80" alt="Training Session"
+                class="hero-image">
+            <div class="hero-content">
+                <h1 class="hero-title">Transform Your<br>Body & Mind</h1>
+                <a href="#membership" class="cta-button">Get Started</a>
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="hero-slide">
+            <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=1920&q=80" alt="Fitness Goals"
+                class="hero-image">
+            <div class="hero-content">
+                <h1 class="hero-title">Unleash Your<br>True Potential</h1>
+                <a href="#membership" class="cta-button">Get Started</a>
+            </div>
+        </div>
+
+        <!-- Slider Dots -->
+        <div class="slider-dots">
+            <span class="dot active" onclick="goToSlide(0)"></span>
+            <span class="dot" onclick="goToSlide(1)"></span>
+            <span class="dot" onclick="goToSlide(2)"></span>
+        </div>
+
+        <!-- Slider Controls -->
+        <div class="slider-controls">
+            <div class="slider-arrow" onclick="prevSlide()">
+                <svg viewBox="0 0 24 24">
+                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                </svg>
+            </div>
+            <div class="slider-arrow" onclick="nextSlide()">
+                <svg viewBox="0 0 24 24">
+                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Side Info -->
+    <div class="contact-side">
+        <div class="contact-icon">📞</div>
+        <div class="contact-text">+91 86574 33333</div>
+        <div class="contact-icon">📍</div>
+    </div>
+
+    <!-- About Us Section -->
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <div class="about-image-left">
+                <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=800&q=80" alt="Gym Training">
+            </div>
+            <div class="about-content">
+                <span class="section-tag">About Us</span>
+                <h2 class="about-title">A Luxury Gym Designed For Peak Performance</h2>
+
+                <div class="about-text">
+                    <p>Welcome to Your Fitness! Our name represents the powerful link between mental toughness
+                        and physical strength. We believe that the gym is not just a place to workout, but a platform to
+                        challenge your limits, build resilience, and unlock your full potential.</p>
+
+                    <p>At Your Fitness, we empower you to transcend your boundaries, not just in fitness, but
+                        in every aspect of your life. Join us to discover a stronger, more confident you, equipped to
+                        conquer every competition that comes your way.</p>
+                </div>
+
+                <a href="#" class="read-more-btn">
+                    <span>Read More</span>
+                    <span class="arrow-box">→</span>
+                </a>
+            </div>
+            <div class="about-image-right">
+                <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=600&q=80"
+                    alt="Fitness Training">
+            </div>
+        </div>
+    </section>
+
+    <!-- Why We Created These Programs Section -->
+    <section class="programs-section">
+        <div class="programs-container">
+            <div class="programs-grid">
+                <div class="grid-item grid-item-1">
+                    <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&q=80"
+                        alt="Fitness Training">
+                </div>
+                <div class="grid-item grid-item-2">
+                    <img src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?w=400&q=80" alt="Running">
+                </div>
+                <div class="grid-item grid-item-3">
+                    <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=400&q=80"
+                        alt="Track Running">
+                </div>
+                <div class="grid-item grid-item-4">
+                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&q=80" alt="Stretching">
+                </div>
+                <div class="grid-item grid-item-5">
+                    <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=400&q=80"
+                        alt="Weight Training">
+                </div>
+                <div class="grid-item grid-item-6">
+                    <img src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?w=400&q=80"
+                        alt="Plank Exercise">
+                </div>
+                <div class="grid-item grid-item-7">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80"
+                        alt="Outdoor Training">
+                </div>
+                <div class="grid-item grid-item-8">
+                    <img src="https://images.unsplash.com/photo-1550345332-09e3ac987658?w=400&q=80" alt="Jump Training">
+                </div>
+                <div class="grid-item grid-item-9">
+                    <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&q=80"
+                        alt="Gym Equipment">
+                </div>
+                <div class="grid-item grid-item-10">
+                    <img src="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=400&q=80"
+                        alt="Floor Exercise">
+                </div>
+                <div class="grid-item grid-item-11">
+                    <img src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=400&q=80"
+                        alt="Strength Training">
+                </div>
+                <div class="grid-item grid-item-12">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&q=80" alt="Portrait">
+                </div>
+                <div class="grid-item grid-item-13">
+                    <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&q=80"
+                        alt="Rock Climbing">
+                </div>
+                <div class="grid-item grid-item-14">
+                    <img src="https://images.unsplash.com/photo-1519505907962-0a6cb0167c73?w=400&q=80"
+                        alt="Forest Training">
+                </div>
+                <div class="grid-item grid-item-15">
+                    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&q=80" alt="Boxing">
+                </div>
+                <div class="grid-item grid-item-16">
+                    <img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=400&q=80" alt="Meditation">
+                </div>
+            </div>
+
+            <div class="programs-content">
+                <h2 class="programs-title">Why We Created These Programs</h2>
+
+                <div class="programs-text">
+                    <p>We designed these programs to make real, lasting transformation accessible to everyone — no
+                        matter your starting point. Whether your goal is to lose weight, build strength, or simply feel
+                        better in your own body, each program follows a structured, sustainable approach built on proven
+                        methods.</p>
+
+                    <p>Every detail was created with balance in mind. You won't find quick fixes or unrealistic promises
+                        — only smart, adaptable routines that evolve with your progress. Our goal is to help you train
+                        effectively, stay consistent, and enjoy the process.</p>
+
+                    <p>From beginners taking their first steps to athletes refining their performance, our programs are
+                        built to meet you where you are. With clear guidance and measurable results, you'll have
+                        everything you need to move forward — one workout, one habit, one win at a time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="services-header">
+            <span class="services-tag">Our Services</span>
+            <h2 class="services-title">Training Programs</h2>
+            <p class="services-subtitle">Discover our specialized training services designed to help you reach your
+                fitness goals</p>
+        </div>
+
+        <div class="services-container">
+            <!-- Cardio Training -->
+            <div class="service-row">
+                <div class="service-images">
+                    <div class="service-image-item">
+                        <img src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?w=500&q=80" alt="Cardio">
+                    </div>
+                    <div class="service-image-item large">
+                        <img src="https://images.unsplash.com/photo-1483721310020-03333e577078?w=500&q=80"
+                            alt="Cardio Training">
+                    </div>
+                </div>
+                <div class="service-info">
+                    <div class="service-badge-container">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29z" />
+                            </svg>
+                        </div>
+                        <div class="service-badge-text">
+                            <div class="service-name">CARDIO</div>
+                            <div class="service-description">Boost your cardiovascular endurance with our high-energy
+                                cardio sessions. From treadmills to cycling and rowing, we offer diverse cardio workouts
+                                to help you burn calories, improve heart health, and increase stamina.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Full Body Workout -->
+            <div class="service-row reverse">
+                <div class="service-images">
+                    <div class="service-image-item large">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&q=80"
+                            alt="Full Body Training">
+                    </div>
+                    <div class="service-image-item">
+                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=500&q=80"
+                            alt="Full Body">
+                    </div>
+                </div>
+                <div class="service-info">
+                    <div class="service-badge-container">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z" />
+                            </svg>
+                        </div>
+                        <div class="service-badge-text">
+                            <div class="service-name">FULL BODY</div>
+                            <div class="service-description">Complete total body transformation with our comprehensive
+                                full body workout programs. Target every muscle group with balanced exercises designed
+                                to build strength, improve flexibility, and create a well-proportioned physique.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Strength Training -->
+            <div class="service-row">
+                <div class="service-images">
+                    <div class="service-image-item">
+                        <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=500&q=80"
+                            alt="Strength">
+                    </div>
+                    <div class="service-image-item large">
+                        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=500&q=80"
+                            alt="Strength Training">
+                    </div>
+                </div>
+                <div class="service-info">
+                    <div class="service-badge-container">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29z" />
+                            </svg>
+                        </div>
+                        <div class="service-badge-text">
+                            <div class="service-name">STRENGTH</div>
+                            <div class="service-description">Build serious muscle mass and power with our specialized
+                                strength training programs. Using progressive overload techniques and compound
+                                movements, we help you maximize muscle growth and functional strength.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HIIT Training -->
+            <div class="service-row reverse">
+                <div class="service-images">
+                    <div class="service-image-item large">
+                        <img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=500&q=80"
+                            alt="HIIT Training">
+                    </div>
+                    <div class="service-image-item">
+                        <img src="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=500&q=80" alt="HIIT">
+                    </div>
+                </div>
+                <div class="service-info">
+                    <div class="service-badge-container">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M13 3L3 14h8v7l10-11h-8z" />
+                            </svg>
+                        </div>
+                        <div class="service-badge-text">
+                            <div class="service-name">HIIT</div>
+                            <div class="service-description">Experience the intensity of High-Intensity Interval
+                                Training. Short bursts of maximum effort followed by brief recovery periods to torch
+                                calories, boost metabolism, and achieve results in less time.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Functional Training -->
+            <div class="service-row">
+                <div class="service-images">
+                    <div class="service-image-item">
+                        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=500&q=80"
+                            alt="Functional">
+                    </div>
+                    <div class="service-image-item large">
+                        <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=500&q=80"
+                            alt="Functional Training">
+                    </div>
+                </div>
+                <div class="service-info">
+                    <div class="service-badge-container">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                            </svg>
+                        </div>
+                        <div class="service-badge-text">
+                            <div class="service-name">FUNCTIONAL</div>
+                            <div class="service-description">Train movements, not just muscles. Our functional training
+                                focuses on real-world exercises that improve daily activities, enhance core stability,
+                                balance, and overall athletic performance for practical strength.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="testimonials-wrapper">
+            <div class="testimonials-left">
+                <h2 class="testimonials-main-title">Real results</h2>
+                <p class="testimonials-description">See how our members transformed their body. Not overnight, but
+                    through commitment, consistency, and a program that truly delivers.</p>
+            </div>
+
+            <div class="testimonials-columns">
+                <!-- Left Column - Moving Up -->
+                <div class="testimonials-column column-up">
+                    <div class="testimonial-box">
+                        <p class="testimonial-quote">"The program exceeded all my expectations, and the results came
+                            faster than I expected."</p>
+                        <div class="testimonial-info">
+                            <h4>Emma L.</h4>
+                            <p>Core Evolution</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-box">
+                        <p class="testimonial-quote">"I used to hate workouts, but this program made everything simple
+                            and rewarding. In just six weeks, I've improved my posture, my flexibility, and my mindset."
+                        </p>
+                        <div class="testimonial-info">
+                            <h4>Sofia D.</h4>
+                            <p>Core Evolution</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-box">
+                        <p class="testimonial-quote">"What I love about Atlas is that it feels designed for real life —
+                            you can see progress every week without burning out. I'm sleeping better, eating cleaner,
+                            and feel in total control of my body."</p>
+                        <div class="testimonial-info">
+                            <h4>Thomas G.</h4>
+                            <p>Atlas Program</p>
+                        </div>
+                    </div>
+
+                    <!-- Duplicate for seamless loop -->
+                    <div class="testimonial-box">
+                        <p class="testimonial-quote">"The program exceeded all my expectations, and the results came
+                            faster than I expected."</p>
+                        <div class="testimonial-info">
+                            <h4>Emma L.</h4>
+                            <p>Core Evolution</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - Moving Down -->
+                <div class="testimonials-column column-down">
+                    <div class="testimonial-box">
+                        <p class="testimonial-quote">"After just six weeks with Power Sculpt, I noticed visible
+                            definition and better endurance. It pushed me past my limits — and I loved every second of
+                            it."</p>
+                        <div class="testimonial-info">
+                            <h4>Jason. M</h4>
+                            <p>Power Sculpt</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-box">
+                        <p class="testimonial-quote">"After just six weeks with Power Sculpt, I noticed visible
+                            definition and better endurance. It pushed me past my limits — and I loved every second of
+                            it."</p>
+                        <div class="testimonial-info">
+                            <h4>Amira. K</h4>
+                            <p>Power Sculpt</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-box">
+                        <p class="testimonial-quote">"Atlas taught me consistency and discipline. I lost 8 kg in three
+                            months, gained lean muscle, and, most importantly, learned how to sustain my progress long
+                            term."</p>
+                        <div class="testimonial-info">
+                            <h4>Diego. S</h4>
+                            <p>Atlas Program</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-box">
+                        <p class="testimonial-quote">"What I loved about Atlas was how structured everything felt. No
+                            guesswork, no confusion — just clear guidance that kept me motivated and accountable."</p>
+                        <div class="testimonial-info">
+                            <h4>Marcus P.</h4>
+                            <p>Atlas Program</p>
+                        </div>
+                    </div>
+
+                    <!-- Duplicate for seamless loop -->
+                    <div class="testimonial-box">
+                        <p class="testimonial-quote">"After just six weeks with Power Sculpt, I noticed visible
+                            definition and better endurance. It pushed me past my limits — and I loved every second of
+                            it."</p>
+                        <div class="testimonial-info">
+                            <h4>Jason. M</h4>
+                            <p>Power Sculpt</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-header">
+            <h1 class="contact-title">CONTACT <span class="highlight">US</span></h1>
+            <p class="contact-subtitle">Ready to start your fitness journey? Get in touch with us today</p>
+        </div>
+
+        <div class="contact-container">
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <!-- Address -->
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                        </svg>
+                    </div>
+                    <div class="info-content">
+                        <h3>Address</h3>
+                        <p>139/A, Marol Maroshi Rd, near Metro Station Marol Naka, opposite Fire Brigade, Gamdevi,
+                            Marol, Andheri East, Mumbai, Maharashtra 400059</p>
+                    </div>
+                </div>
+
+                <!-- Phone -->
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                        </svg>
+                    </div>
+                    <div class="info-content">
+                        <h3>Phone</h3>
+                        <p><a href="tel:+918657633633">+91 86576 33633</a></p>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                        </svg>
+                    </div>
+                    <div class="info-content">
+                        <h3>Email</h3>
+                        <p><a href="mailto:info@yourfitness.com">info@yourfitness.com</a></p>
+                    </div>
+                </div>
+
+                <!-- Map -->
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.2176878285746!2d72.8697976!3d19.1095889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9d90e5fffff%3A0x3d2e3e3b3b3b3b3b!2sMarol%2C%20Andheri%20East%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                        allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form-wrapper">
+                <h2 class="form-title">Send Us A Message</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Your phone number" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="How can we help you?" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-button">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                        </svg>
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+        <div class="footer-header">
+            <h2 class="footer-main-title">LET'S DISCUSS</h2>
+        </div>
+
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-col footer-logo-col">
+                    <div class="footer-logo">
+                        <div class="logo-text">YOUR</div>
+                        <div class="logo-text">FITNESS</div>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">QUICK LINKS</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">HOME</a></li>
+                        <li><a href="#about">ABOUT</a></li>
+                        <li><a href="#services">OUR SERVICES</a></li>
+                        <li><a href="#membership">MEMBERSHIP PLANS</a></li>
+                        <li><a href="#gallery">GALLERY</a></li>
+                        <li><a href="#contact">CONTACT US</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">CONTACT US</h4>
+                    <ul class="footer-links">
+                        <li><a href="/cdn-cgi/l/email-protection#cca1a1afabb5a1e2a1adbea3a08caba1ada5a0e2afa3a1"><span
+                                    class="__cf_email__"
+                                    data-cfemail="f994949a9e8094d794988b9695b99e94989095d79a9694">[email&#160;protected]</span></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">WE ARE HERE</h4>
+                    <ul class="footer-links">
+                        <li>139/A, Marol Maroshi Rd, near Metro Station Marol Naka, opposite Fire Brigade, Gamdevi,
+                            Marol, Andheri East, Mumbai, Maharashtra 400059</li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">WE ARE OPEN</h4>
+                    <ul class="footer-links">
+                        <li>Mon - Sat: 06:00 AM - 11:00 PM</li>
+                        <li>Sun: 08:00 AM - 02:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <div class="footer-bottom">
+                <p class="copyright">Copyright 2026 © All rights reserved by Your Fitness | Develop by BreakPoint
+                </p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="scroll-percentage-text">
+                    <span class="scroll-percentage">102%</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        const dots = document.querySelectorAll('.dot');
+        let autoSlideInterval;
+
+        function showSlide(n) {
+            // Remove active class from all slides and dots
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            // Handle slide index wrapping
+            if (n >= slides.length) {
+                currentSlide = 0;
+            } else if (n < 0) {
+                currentSlide = slides.length - 1;
+            } else {
+                currentSlide = n;
+            }
+
+            // Add active class to current slide and dot
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+            resetAutoSlide();
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+            resetAutoSlide();
+        }
+
+        function goToSlide(n) {
+            showSlide(n);
+            resetAutoSlide();
+        }
+
+        function autoSlide() {
+            autoSlideInterval = setInterval(() => {
+                showSlide(currentSlide + 1);
+            }, 5000); // Change slide every 5 seconds
+        }
+
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            autoSlide();
+        }
+
+        // Start auto-sliding when page loads
+        autoSlide();
+
+        // Pause auto-slide on hover
+        const heroSection = document.querySelector('.hero-section');
+        heroSection.addEventListener('mouseenter', () => {
+            clearInterval(autoSlideInterval);
+        });
+
+        heroSection.addEventListener('mouseleave', () => {
+            autoSlide();
+        });
+
+        // Scroll to Top functionality for footer button
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Contact Form Handler
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+
+            // Here you would typically send the data to a server
+            console.log('Form submitted:', { name, phone, message });
+
+            // Show success message
+            alert('Thank you for your message! We will get back to you soon.');
+
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+
+</html>
